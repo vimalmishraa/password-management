@@ -1,0 +1,45 @@
+<% include ./header %>   
+
+<h2 class="text-center"><%= title %></h2>
+<div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <div class="panel-title"> Add Category</div>
+             </div>  
+        <div class="panel-body">
+        <% if(typeof msg!='undefined' && msg !=''){ %>
+          <p style="text-align: center">   <%= msg %></p>
+          <% } %>
+            <form action="/add-category" id="addCategory" class="form-horizontal" method="post"  role="form">
+                
+                <div id="signupalert" style="display:none" class="alert alert-danger">
+                    <p>Error:</p>
+                    <span></span>
+                </div>
+                <div class="form-group">
+                      <label for="category_name" class="col-md-3 control-label">Category Name</label>
+                      <div class="col-md-9">
+                          <input type="text" class="form-control" name="category_name" placeholder="Enter Category Name" value="<%=user.category_name%>"required>
+                          <% if(typeof error!='undefined' && error.category_name) { %><span><%=error.category_name.msg %></span>
+                            <% } %>  
+                      </div>
+                  </div>
+                                
+                <div class="form-group">
+                                 
+                    <div class="col-md-offset-3 col-md-9">
+                    <input type="hidden" name="action_type" value="<%=action_type%>">
+                    <% if(action_type=='edit') {%>   
+                        <input type="hidden" name="updId" value="<%=user._id %>">
+                     <% } %>   
+                    <input type="submit" name="submit" value="Add Category" class="btn btn-primary">   
+                    </div>
+                </div>
+                               
+            </form>
+         </div>
+    </div>
+</div>
+
+<% include ./footer %>
+    

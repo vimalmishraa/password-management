@@ -1,0 +1,42 @@
+<% include ./header %>   
+
+<h2 class="text-center"><%= title %></h2>
+<div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+
+    <% if(typeof msg!='undefined' && msg !=''){ %>
+      <div id="signupalert" class="alert alert-success">
+      <p><%= msg%>.</p>
+      </div>
+     <% } %>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+
+             <div class="panel-title"> View All Added Category</div>
+        </div>  
+         <table class="table table-bordered" width="80%">
+                    <tbody>
+               <tr>
+              <th>category Name</th>
+             
+              <th>Actions</th>
+              </tr>
+              <% records.forEach(function(row) { %>
+                <tr>
+                  <td><%=row.category_name %></td>
+                   <td>
+                   <a class="btn btn-primary btn-xs" href="/add-category/<%= row._id %>"><i class="fa fa-edit"></i></a>
+                   <a class="btn btn-danger btn-xs" href="/delete/category/<%= row._id %>"><i class="fa fa-trash"></i></a>
+                  </td>
+          
+                </tr>
+                <% }) %>
+                    </tbody>
+          
+             </table>
+          
+                
+    </div>
+</div>
+
+<% include ./footer %>
+    
