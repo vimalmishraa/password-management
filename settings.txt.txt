@@ -1,0 +1,31 @@
+***********************************************************************************
+
+This Module is only for testing purpose for beginers For management of password of multiple accounts.
+
+It is written nodejs with expressjs frameword and database with mongodb.
+
+1-Install Mongodb and express js Framework.
+
+	express --view=ejs <folder name>
+in npm command line
+
+after this run "run npm install"
+
+After this install all dependicies packages
+
+npm install https_msgs // for ajax request
+
+npm install express-validator // for validation messages
+
+npm install http-errors // error messages
+
+npm install mongoose // database connection ORM model
+
+npm install jsonwebtoken // for authentication
+
+npm install bcrypt // by storing password as # key 
+
+npm install dotenv // it used for loading environment variable for just like config file
+
+
+
